@@ -79,7 +79,7 @@ class ResettingController extends Controller
     {
         $email = $request->query->get('email');
 
-        if (empty($email)) {
+        if (empty($email) || is_null($email)) {
             // the user does not come from the sendEmail action
             return new RedirectResponse($this->generateUrl('fos_user_resetting_request'));
         }
